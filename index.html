@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+
+    <!-- Connect CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="calculator">
+
+        <!-- Top bar: title + history/theme buttons -->
+        <div class="top-bar">
+            <h2>Calculator</h2>
+            <div class="top-actions">
+                <button class="theme-switch" id="themeToggle" type="button" role="switch"
+                        aria-checked="false" aria-label="Dark mode" title="Switch theme">
+                    <svg class="sun" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"></path>
+                    </svg>
+                    <span class="knob"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Screen: small preview line + main display -->
+        <div class="screen">
+            <div class="screen-top">
+                <button class="history-btn" id="historyToggle" type="button"
+                        aria-label="Show history" aria-expanded="false" title="History">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="8.5"></circle>
+                        <path d="M12 7.5V12l3 2"></path>
+                    </svg>
+                </button>
+                <div id="preview" aria-live="polite"></div>
+            </div>
+            <input type="text" id="display" value="0" readonly aria-label="Calculator display">
+        </div>
+
+        <!-- Calculator Buttons -->
+        <div class="buttons">
+
+            <button class="special" data-action="clear" aria-label="Clear">C</button>
+            <button class="special" data-action="delete" aria-label="Delete last">⌫</button>
+            <button class="operator" data-value="(">(</button>
+            <button class="operator" data-value=")">)</button>
+
+            <button class="operator" data-value="√" aria-label="Square root">√</button>
+            <button class="operator" data-value="^" aria-label="Power">xʸ</button>
+            <button class="operator" data-value="%">%</button>
+            <button class="operator" data-value="÷">÷</button>
+
+            <button data-value="7">7</button>
+            <button data-value="8">8</button>
+            <button data-value="9">9</button>
+            <button class="operator" data-value="×">×</button>
+
+            <button data-value="4">4</button>
+            <button data-value="5">5</button>
+            <button data-value="6">6</button>
+            <button class="operator" data-value="−">−</button>
+
+            <button data-value="1">1</button>
+            <button data-value="2">2</button>
+            <button data-value="3">3</button>
+            <button class="operator" data-value="+">+</button>
+
+            <button data-value="0">0</button>
+            <button data-value=".">.</button>
+            <button class="equal" data-action="equals">=</button>
+
+        </div>
+
+        <!-- History panel (hidden until opened) -->
+        <section id="historyPanel" class="history" hidden>
+            <ul id="historyList"></ul>
+            <button id="clearHistory" class="clear-history" type="button">Clear history</button>
+        </section>
+    </div>
+
+    <!-- Connect JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
